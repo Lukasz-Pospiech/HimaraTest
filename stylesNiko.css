@@ -1,0 +1,350 @@
+* {
+    box-sizing: border-box;
+    border: none;
+    scrollbar-width: none; 
+    -ms-overflow-style: none;
+}
+
+:root {
+    --vh: 1vh;
+}
+
+::-webkit-scrollbar {
+    display: none;
+  }
+
+body {
+    position: fixed;
+    background-color: black;
+    max-width: 100vw;
+    max-height: calc(var(--vh, 1vh) * 100);
+    width: 100vw;
+    height: calc(var(--vh, 1vh) * 100);
+    overflow-y: scroll;
+    padding: 0;
+    margin: 0;
+}
+
+#container {
+    position: fixed;
+    width: 100vw;
+    height: calc(var(--vh, 1vh) * 100);
+    max-width: 100vw;
+    max-height: calc(var(--vh, 1vh) * 100);
+    top: 0;
+    left: 0;
+    padding: 0;
+    background-image: url('water_circle.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    text-shadow: 1px 1px black;
+    z-index: 1;
+}
+
+#darkContainer {
+    position: fixed;
+    width: 100vw;
+    height: calc(var(--vh, 1vh) * 100);
+    max-width: 100vw;
+    max-height: calc(var(--vh, 1vh) * 100);
+    top: 0;
+    left: 0;
+    padding: 0;
+    z-index: 8;
+    transition: opacity 0.5s;
+    opacity: 0;
+    background-color: black;
+}
+
+#navIconDiv {
+    position: fixed;
+    width: 22vw;
+    height: 22vw;
+    top: 1vw;
+    right: 1vw;
+    z-index: 10;
+  }
+
+  #navIcon {
+    width: 22vw;
+    height: 22vw;
+  }
+
+
+#menuDiv {
+    display: grid;
+    position: fixed;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr; 
+    width: 70vw;
+    height: calc(var(--vh, 1vh) * 50);
+    top: 27vw;
+    left: 105vw;
+    justify-content: right;
+    align-content: top;
+    justify-items: right;
+    align-items: top;
+    z-index: 9;
+    /* background-color: brown; */
+}
+
+.openMenu {
+    animation: openMenuAnim 0.5s ease-out 1 forwards;
+    left: 105vw;
+}
+
+@keyframes openMenuAnim {
+    0% {
+        left: 105vw;
+    }
+    100% {
+        left: 30vw;
+    }
+}
+
+.closeMenu {
+    animation: closeMenuAnim 0.5s ease-in 1 forwards;
+    left: 30vw;
+}
+
+@keyframes closeMenuAnim {
+    0% {
+        left: 30vw;
+    }
+    100% {
+        left: 105vw;
+    }
+}
+
+
+.menuItems {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    width: 70vw;
+    height: calc(var(--vh, 1vh) * 10);
+    letter-spacing: 0.8vw;
+    font-size: calc(var(--vh, 1vh) * 4);
+    color: black;
+    -webkit-text-fill-color: white; 
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    text-shadow: 3px 3px black;
+    padding-right: 4vw;
+    background-color: rgba(12, 175, 200, 0);
+    font-family: 'News Cycle', 'Source Sans Pro', 'Arial';
+}
+
+a {
+    text-decoration: none;
+}
+
+#logo {
+    position: absolute;
+    width: 70vw;
+    top: calc(var(--vh, 1vh) * 26);
+    left: 15vw;
+    z-index: 7;
+    opacity: 0;
+    animation: logoPresent 8s ease-in-out 1s 1 forwards;
+    rotate: 0deg;
+}
+
+@keyframes logoPresent {
+    0% {
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+        rotate: 0deg;
+    }
+    25% {
+        opacity: 1;
+        rotate: 0deg;
+    }
+    60% {
+        opacity: 1;
+        rotate: 360deg;
+    }
+    90% {
+        opacity: 1;
+        rotate: 360deg;
+    }
+    100% {
+        opacity: 0;
+        rotate: 360deg;
+    }
+}
+
+
+
+.photoContainer1 {
+    display: flex;
+    width: 100vw; 
+    max-width: 100vw;
+    height: calc(var(--vh, 1vh) * 84);
+    max-height: calc(var(--vh, 1vh) * 84);
+    align-items: end;
+    padding: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    z-index: 6;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .photo1 {
+    width: 100%; 
+    max-width: 100%;
+    opacity: 0; 
+    position: relative; 
+    transition: opacity 1s ease-in-out; 
+  }
+
+  .photo1.active1 {
+    opacity: 1; 
+  }
+
+
+/* video {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 6;
+} */
+
+/* 
+iframe {
+    width: 120%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 10;
+} */
+
+
+#intro {
+    position: absolute;
+    width: 100vw;
+    max-width: 100vw;
+    height: calc(var(--vh, 1vh) * 16);
+    max-height: calc(var(--vh, 1vh) * 16);
+    top: calc(var(--vh, 1vh) * 84);
+    left: 0;
+    z-index: 4;
+    text-indent: 6vw;
+    line-height: 9vw;
+    font-family: 'News Cycle', 'Source Sans Pro', 'Arial';
+    letter-spacing: 0.6vw;
+    font-size: 5.3vw;
+    color: rgb(255, 255, 255);
+    /* text-shadow: 1px 1px 4px rgb(1, 40, 102), 2px 2px 6px rgb(1, 40, 102), 3px 3px 8px rgb(1, 40, 102), 4px 4px 10px rgb(1, 40, 102), 5px 5px 12px rgb(1, 40, 102), 6px 6px 14px rgb(1, 40, 102); */
+    text-shadow: 1px 1px 1px rgb(0, 0, 0), 1px 1px 2px rgb(0, 0, 0);
+    background-image: linear-gradient(to bottom, #009ba9, #003d75);
+    transition: opacity 1s;
+    opacity: 0;
+}
+
+
+#intro div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    height: calc(var(--vh, 1vh) * 16);
+    max-height: calc(var(--vh, 1vh) * 16);
+    width: 90vw;
+    max-width: 90vw;
+    left: 5vw;
+    top: 0;
+    /* background-color: cadetblue; */
+}
+
+#intro1 {
+    opacity: 0;
+    text-align: justify;
+}
+
+#intro2 {
+    opacity: 0;
+    text-align: justify;
+}
+
+#intro3 {
+     opacity: 0;
+    text-align: justify;
+}
+
+#intro4 {
+     opacity: 0;
+    text-align: justify;
+}
+
+#intro5 {
+     opacity: 0;
+    text-align: justify;
+}
+
+#intro6 {
+    opacity: 0;
+   text-align: justify;
+}
+
+#intro7 {
+     opacity: 0;
+    text-align: center;
+}
+
+.intro1Animation {
+    animation: introAnim 6s ease-in-out 8s 1 forwards;
+}
+
+.intro2Animation {
+    animation: introAnim 6s ease-in-out 14s 1 forwards;
+}
+
+.intro3Animation {
+    animation: introAnim 6s ease-in-out 20s 1 forwards;
+}
+
+.intro4Animation {
+    animation: introAnim 6s ease-in-out 26s 1 forwards;
+}
+
+.intro5Animation {
+    animation: introAnim 6s ease-in-out 32s 1 forwards;
+}
+
+.intro6Animation {
+    animation: introAnim 6s ease-in-out 38s 1 forwards;
+}
+
+.intro7Animation {
+    animation: introAnim 6s ease-in-out 44s 1 forwards;
+}
+
+@keyframes introAnim {
+    0% {
+        opacity: 0;
+    }
+    15% {
+        opacity: 1;
+    }
+    85% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+} 
+
+#HimaraSeas {
+    color: rgb(255, 191, 73);
+}
+
+
+
+
